@@ -126,9 +126,9 @@ export abstract class Potion {
     }
 
     public view(): void {
-            console.log(`
-Código: ${this._id} - Nome: ${this._name}
-Descrição: ${this.description}
+        console.log
+(`Poção: ${this._name} - número: ${this._id}
+Descrição: ${this._description}
 Tipo: ${this._type}
 Quantidade: ${this._quantity}
 Sabor: ${this._flavor}
@@ -136,7 +136,6 @@ Efeito Principal: ${this._principalEffect}
 Efeitos Colaterais: ${this._sideEffects}
 Como usar: ${this._howToUse}
 Ingredientes: ${this._ingredients}
-Preço: ${this._price}
-`);
+Preço: ${this._price}`);
     }
 }
