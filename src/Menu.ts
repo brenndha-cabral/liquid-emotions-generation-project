@@ -10,13 +10,12 @@ import { TimeDilationPotion } from "./models/TimeDistortionPotion";
 
 export function main() {
 
-    let inputOperation: number;
-    let id, quantity, price, romanticIntensity, destructionLevel, effectDuration, emotionalDepth, audacityBonus, timeDilationFactor: number;
-    let name, description, type, flavor, principalEffect, sideEffects, howToUse, ingredients, target, memoryTrigger, sideEffect, possibleParadoxes: string;
-
-    let test: string | undefined;
-
     let potions: PotionController = new PotionController();
+    let inputOperation: number;
+    let type: number;
+    let id: number;
+    let quantity, price, romanticIntensity, destructionLevel, effectDuration, emotionalDepth, audacityBonus, timeDilationFactor: number;
+    let name, description, flavor, principalEffect, sideEffects, howToUse, ingredients, target, memoryTrigger, sideEffect, possibleParadoxes, typeDescription: string;
 
 
     // // Teste de simulação para não ficar imputando na mão no console
@@ -79,6 +78,9 @@ ${dataMenu.map((operation) =>`${operation.code} - ${operation.description}`).joi
 ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n')}`);
                 type = read.questionInt();
 
+                console.log("Digite o número: ");
+                id = read.questionInt();
+
                 console.log("Digite o nome: ");
                 name = read.question();
 
@@ -115,11 +117,11 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
                         
                         console.log("Digite o seu alvo (Pessoa) - Não obrigatório: ");
                         target = read.question();
-                        
-                        test = dataTypesPotions.find(t => t.code === type)?.description;
+
+                        typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
 
                         potions.registerPotion(
-                            new LovePotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, romanticIntensity, target)
+                            new LovePotion(id, name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, romanticIntensity, target)
                         );
                         break;
                     
@@ -130,8 +132,10 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
                         console.log("Digite a duração do efeito: ");
                         effectDuration = read.questionInt();
 
+                        typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                         potions.registerPotion(
-                            new ChaosPotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, destructionLevel, effectDuration)
+                            new ChaosPotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, destructionLevel, effectDuration)
                         );
                         break;
                     
@@ -142,8 +146,10 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
                         console.log("Digite os gatilhos: ");
                         memoryTrigger = read.question();
 
+                        typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                         potions.registerPotion(
-                            new MelancholyPotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, emotionalDepth, memoryTrigger)
+                            new MelancholyPotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, emotionalDepth, memoryTrigger)
                         );
                         break;
                     
@@ -154,8 +160,10 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
                         console.log("Digite os efeitos: ");
                         sideEffect = read.question();
 
+                        typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                         potions.registerPotion(
-                            new CouragePotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, audacityBonus, sideEffect)
+                            new CouragePotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, audacityBonus, sideEffect)
                         );
                         break;
                     
@@ -166,8 +174,10 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
                         console.log("Digite os paradoxos possíveis: ");
                         possibleParadoxes = read.question();
 
+                        typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                         potions.registerPotion(
-                            new TimeDilationPotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, timeDilationFactor, possibleParadoxes)
+                            new TimeDilationPotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, timeDilationFactor, possibleParadoxes)
                         );
                         break;
                 }
@@ -196,7 +206,7 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
 
                 if (!!potion) {
                 
-                    // type = potion.type;
+                    typeDescription = potion.type;
 
                     console.log("Digite o nome: ");
                     name = read.question();
@@ -225,67 +235,75 @@ ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n'
                     console.log("Digite o preço: ");
                     price = read.questionFloat();
 
-                    switch (type) {
+                    switch (typeDescription) {
                         
-                        case 1:
+                        case "Poções de Afeto":
                             console.log("Digite a intensidade romântica: ");
                             romanticIntensity = read.questionInt();
                             
                             console.log("Digite o seu alvo (Pessoa) - Não obrigatório: ");
                             target = read.question();
                             
-                            test = dataTypesPotions.find(t => t.code === type)?.description;
+                            typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
 
                             potions.registerPotion(
-                                new LovePotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, romanticIntensity, target)
+                                new LovePotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, romanticIntensity, target)
                             );
                             break;
                         
-                        case 2:
+                        case "Poções de Caos":
                             console.log("Digite o nível de destruição: ");
                             destructionLevel = read.questionInt();
 
                             console.log("Digite a duração do efeito: ");
                             effectDuration = read.questionInt();
 
+                            typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                             potions.registerPotion(
-                                new ChaosPotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, destructionLevel, effectDuration)
+                                new ChaosPotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, destructionLevel, effectDuration)
                             );
                             break;
                         
-                        case 3:
+                        case "Poções de Melancolia":
                             console.log("Digite a profundidade emocional: ");
                             emotionalDepth = read.questionInt();
 
                             console.log("Digite os gatilhos: ");
                             memoryTrigger = read.question();
 
+                            typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                             potions.registerPotion(
-                                new MelancholyPotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, emotionalDepth, memoryTrigger)
+                                new MelancholyPotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, emotionalDepth, memoryTrigger)
                             );
                             break;
                         
-                        case 4:
+                        case "Poções de Coragem":
                             console.log("Digite o bônus de audácia: ");
                             audacityBonus = read.questionInt();
 
                             console.log("Digite os efeitos: ");
                             sideEffect = read.question();
 
+                            typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                             potions.registerPotion(
-                                new CouragePotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, audacityBonus, sideEffect)
+                                new CouragePotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, audacityBonus, sideEffect)
                             );
                             break;
                         
-                        case 5:
+                        case "Poções de Distorção Temporal":
                             console.log("Digite o fator dilatação: ");
                             timeDilationFactor = read.questionInt();
 
                             console.log("Digite os paradoxos possíveis: ");
                             possibleParadoxes = read.question();
 
+                            typeDescription = dataTypesPotions.find(t => t.code === type)?.description || "";
+
                             potions.registerPotion(
-                                new TimeDilationPotion(potions.generateidPotion(), name, description, test, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, timeDilationFactor, possibleParadoxes)
+                                new TimeDilationPotion(potions.generateidPotion(), name, description, typeDescription, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, timeDilationFactor, possibleParadoxes)
                             );
                             break;
                     }
