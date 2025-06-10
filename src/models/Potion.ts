@@ -1,5 +1,6 @@
 export abstract class Potion {
     private _id: number;
+    private _name: string;
     private _description: string;
     private _type: string;
     private _quantity: number;
@@ -9,11 +10,10 @@ export abstract class Potion {
     private _howToUse: string;
     private _ingredients: string;
     private _price: number;
-    private _stock: number;
-
 
     constructor(
         id: number,
+        name: string,
         description: string,
         type: string,
         quantity: number,
@@ -23,9 +23,9 @@ export abstract class Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        stock: number,
     ) {
         this._id = id;
+        this._name = name;
         this._description = description;
         this._type = type;
         this._quantity = quantity;
@@ -35,7 +35,6 @@ export abstract class Potion {
         this._howToUse = howToUse;
         this._ingredients = ingredients;
         this._price = price;
-        this._stock = stock;
     }
 
     public get id() {
@@ -44,6 +43,14 @@ export abstract class Potion {
 
     public set id(id: number) {
         this._id = id;
+    }
+
+    public get name() {
+        return this._name;
+    }
+
+    public set name(name: string) {
+        this._name = name;
     }
 
     public get description() {
@@ -118,11 +125,17 @@ export abstract class Potion {
         this._price = price;
     }
 
-    public get stock() {
-        return this._stock;
+    public view(): void {
+        console.log
+(`Poção: ${this._name} - número: ${this._id}
+Descrição: ${this._description}
+Tipo: ${this._type}
+Quantidade: ${this._quantity}
+Sabor: ${this._flavor}
+Efeito Principal: ${this._principalEffect}
+Efeitos Colaterais: ${this._sideEffects}
+Como usar: ${this._howToUse}
+Ingredientes: ${this._ingredients}
+Preço: ${this._price}`);
     }
-
-    public set stock(stock: number) {
-        this._stock = stock;
-    }    
 }
