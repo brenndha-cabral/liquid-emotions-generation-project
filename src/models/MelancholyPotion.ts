@@ -1,6 +1,6 @@
 import { Potion } from "./Potion";
 
-export class MelancoliaPotion extends Potion {
+export class MelancholyPotion extends Potion {
     private _emotionalDepth: number;
     private _memoryTrigger: string;
 
