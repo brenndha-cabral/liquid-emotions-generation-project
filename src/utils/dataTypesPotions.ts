@@ -1,4 +1,4 @@
-export const dataTypesAccount: Array<{ code: number; description: string }> = [
+export const dataTypesPotions: Array<{ code: number; description: string }> = [
     { code: 1, description: "Poções de Afeto" },
     { code: 2, description: "Poções de Caos" },
     { code: 3, description: "Poções de Melancolia" },
