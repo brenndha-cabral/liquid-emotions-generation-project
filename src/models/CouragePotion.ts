@@ -1,8 +1,8 @@
 import { Potion } from "./Potion";
 
 export class CouragePotion extends Potion {
-    private _audacityBonus: string;
-    private _sideEffect: number;
+    private _audacityBonus: number;
+    private _sideEffect: string;
 
     constructor(
         id: number,
@@ -16,8 +16,8 @@ export class CouragePotion extends Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        audacityBonus: string,
-        sideEffect: number,
+        audacityBonus: number,
+        sideEffect: string,
     ) {
         super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price);
         this._audacityBonus = audacityBonus;
@@ -28,7 +28,7 @@ export class CouragePotion extends Potion {
         return this._audacityBonus;
     }
 
-    public set audacityBonus(audacityBonus: string) {
+    public set audacityBonus(audacityBonus: number) {
         this._audacityBonus = audacityBonus;
     }
 
@@ -36,7 +36,7 @@ export class CouragePotion extends Potion {
         return this._sideEffect;
     }
 
-    public set sideEffect(sideEffect: number) {
+    public set sideEffect(sideEffect: string) {
         this._sideEffect = sideEffect;
     }
 

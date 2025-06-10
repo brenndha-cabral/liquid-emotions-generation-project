@@ -4,6 +4,11 @@ import { IPotionRepository } from "../repositories/IPotionRepository";
 export class PotionController implements IPotionRepository {
 
     private listPotions: Array<Potion> = new Array<Potion>();
+    idPotion: number = 0;
+
+    public generateidPotion(): number {
+        return ++ this.idPotion;
+    } // Verificar como vai fazer
 
     findPotionById(id: number): undefined | Potion {
         return this.listPotions.find(potion => potion.id === id);
