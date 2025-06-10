@@ -16,11 +16,10 @@ export class ChaosPotion extends Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        stock: number,
         destructionLevel: number,
         effectDuration: number,
     ) {
-        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price);
         this._destructionLevel = destructionLevel;
         this._effectDuration = effectDuration;
     }
@@ -39,5 +38,17 @@ export class ChaosPotion extends Potion {
 
     public set effectDuration(effectDuration: number) {
         this._effectDuration = effectDuration;
+    }
+
+    public view(): void {
+        super.view();
+        console.log(`
+*********************************
+Informações Adicionais!
+*********************************
+
+Nível de destruição: ${this._destructionLevel}
+Duração do efeito: ${this._effectDuration}
+`);
     }
 }

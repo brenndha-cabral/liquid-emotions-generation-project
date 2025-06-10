@@ -16,11 +16,10 @@ export class TimeDilationPotion extends Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        stock: number,
         timeDilationFactor: number,
         possibleParadoxes: string,
     ) {
-        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price);
         this._timeDilationFactor = timeDilationFactor;
         this._possibleParadoxes = possibleParadoxes;
     }
@@ -39,5 +38,17 @@ export class TimeDilationPotion extends Potion {
 
     public set possibleParadoxes(possibleParadoxes: string) {
         this._possibleParadoxes = possibleParadoxes;
+    }
+
+    public view(): void {
+        super.view();
+        console.log(`
+*********************************
+Informações Adicionais!
+*********************************
+
+Fator dilatação: ${this._timeDilationFactor}
+Paradoxos possíveis: ${this._possibleParadoxes}
+`);
     }
 }

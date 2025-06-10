@@ -16,11 +16,10 @@ export class MelancholyPotion extends Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        stock: number,
         emotionalDepth: number,
         memoryTrigger: string,
     ) {
-        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price);
         this._emotionalDepth = emotionalDepth;
         this._memoryTrigger = memoryTrigger;
     }
@@ -39,5 +38,17 @@ export class MelancholyPotion extends Potion {
 
     public set memoryTrigger(memoryTrigger: string) {
         this._memoryTrigger = memoryTrigger;
+    }
+
+    public view(): void {
+        super.view();
+        console.log(`
+*********************************
+Informações Adicionais!
+*********************************
+
+Profundidade emocional: ${this._emotionalDepth}
+Gatilhos: ${this._memoryTrigger}
+`);
     }
 }

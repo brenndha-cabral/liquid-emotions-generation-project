@@ -16,11 +16,10 @@ export class CouragePotion extends Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        stock: number,
         audacityBonus: string,
         sideEffect: number,
     ) {
-        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price);
         this._audacityBonus = audacityBonus;
         this._sideEffect = sideEffect;
     }
@@ -39,5 +38,17 @@ export class CouragePotion extends Potion {
 
     public set sideEffect(sideEffect: number) {
         this._sideEffect = sideEffect;
+    }
+
+    public view(): void {
+        super.view();
+        console.log(`
+*********************************
+Informações Adicionais!
+*********************************
+
+Bônus de audácia: ${this._audacityBonus}
+Efeitos: ${this._sideEffect}
+`);
     }
 }

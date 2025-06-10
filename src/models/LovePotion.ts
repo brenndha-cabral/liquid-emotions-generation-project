@@ -16,11 +16,10 @@ export class LovePotion extends Potion {
         howToUse: string,
         ingredients: string,
         price: number,
-        stock: number,
         romanticIntensity: number,
         target: string = "Alvo não definido!" // Setei uma mensagem padrão caso a pessoa não tenha um alvo ou não queira inserir a pessoa algo,
     ) {
-        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price);
         this._romanticIntensity = romanticIntensity;
         this._target = target;
     }
@@ -39,5 +38,17 @@ export class LovePotion extends Potion {
 
     public set target(target: string) {
         this._target = target;
+    }
+
+    public view(): void {
+        super.view();
+        console.log(`
+*********************************
+Informações Adicionais!
+*********************************
+
+Intensidade romântica: ${this._romanticIntensity}
+Alvo: ${this._target}
+`);
     }
 }
