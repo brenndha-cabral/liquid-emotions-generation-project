@@ -6,6 +6,7 @@ export class LovePotion extends Potion {
 
     constructor(
         id: number,
+        name: string,
         description: string,
         type: string,
         quantity: number,
@@ -19,7 +20,7 @@ export class LovePotion extends Potion {
         romanticIntensity: number,
         target: string = "Alvo não definido!" // Setei uma mensagem padrão caso a pessoa não tenha um alvo ou não queira inserir a pessoa algo,
     ) {
-        super(id, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
         this._romanticIntensity = romanticIntensity;
         this._target = target;
     }

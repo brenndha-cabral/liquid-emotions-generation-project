@@ -6,6 +6,7 @@ export class ChaosPotion extends Potion {
 
     constructor(
         id: number,
+        name: string,
         description: string,
         type: string,
         quantity: number,
@@ -19,7 +20,7 @@ export class ChaosPotion extends Potion {
         destructionLevel: number,
         effectDuration: number,
     ) {
-        super(id, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
         this._destructionLevel = destructionLevel;
         this._effectDuration = effectDuration;
     }

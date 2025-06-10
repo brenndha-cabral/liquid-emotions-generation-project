@@ -6,6 +6,7 @@ export class CouragePotion extends Potion {
 
     constructor(
         id: number,
+        name: string,
         description: string,
         type: string,
         quantity: number,
@@ -19,7 +20,7 @@ export class CouragePotion extends Potion {
         audacityBonus: string,
         sideEffect: number,
     ) {
-        super(id, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        super(id, name, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
         this._audacityBonus = audacityBonus;
         this._sideEffect = sideEffect;
     }
