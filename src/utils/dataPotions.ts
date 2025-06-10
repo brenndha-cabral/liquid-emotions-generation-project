@@ -5,7 +5,7 @@ import { MelancholyPotion } from "../models/MelancholyPotion";
 import { TimeDilationPotion } from "../models/TimeDistortionPotion";
 import { CouragePotion } from "../models/CouragePotion";
 
-export function registerSamplePotions(potions: PotionController): void {
+export function registerDataPotions(potions: PotionController): void {
     console.log("\nCadastrando poções de exemplo...");
 
     const lovePotion1 = new LovePotion(
@@ -168,7 +168,7 @@ export function registerSamplePotions(potions: PotionController): void {
         "Memórias de futuros alternativos"
     );
 
-    const samplePotions = [
+    const dataPotions = [
         lovePotion1, lovePotion2,
         chaosPotion1, chaosPotion2,
         melancholyPotion1, melancholyPotion2,
@@ -176,5 +176,5 @@ export function registerSamplePotions(potions: PotionController): void {
         timePotion1, timePotion2
     ];
 
-    samplePotions.forEach(potion => potions.registerPotion(potion));
+    dataPotions.forEach(potion => potions.registerPotion(potion));
 }

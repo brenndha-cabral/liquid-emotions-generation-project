@@ -7,7 +7,7 @@ import { ChaosPotion } from "./models/ChaosPotion";
 import { MelancholyPotion } from "./models/MelancholyPotion";
 import { CouragePotion } from "./models/CouragePotion";
 import { TimeDilationPotion } from "./models/TimeDistortionPotion";
-import { registerSamplePotions } from "./utils/loadAllPotions";
+import { registerDataPotions } from "./utils/dataPotions";
 
 export function menu() {
 
@@ -20,8 +20,7 @@ export function menu() {
 
 
     // Teste de simulação para não ficar imputando na mão no console
-    let registerPotionTester: PotionController = new PotionController();
-    registerSamplePotions(registerPotionTester);
+    registerDataPotions(potions);
     // Final do input das poções
 
 
