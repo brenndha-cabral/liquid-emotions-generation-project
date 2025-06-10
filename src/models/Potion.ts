@@ -1,5 +1,6 @@
 export abstract class Potion {
     private _id: number;
+    private _description: string;
     private _type: string;
     private _quantity: number;
     private _flavor: string;
@@ -13,6 +14,7 @@ export abstract class Potion {
 
     constructor(
         id: number,
+        description: string,
         type: string,
         quantity: number,
         flavor: string,
@@ -24,6 +26,7 @@ export abstract class Potion {
         stock: number,
     ) {
         this._id = id;
+        this._description = description;
         this._type = type;
         this._quantity = quantity;
         this._flavor = flavor;
@@ -41,6 +44,14 @@ export abstract class Potion {
 
     public set id(id: number) {
         this._id = id;
+    }
+
+    public get description() {
+        return this._description;
+    }
+
+    public set description(description: string) {
+        this._description = description;
     }
 
     public get type() {
