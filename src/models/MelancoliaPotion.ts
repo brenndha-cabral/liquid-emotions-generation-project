@@ -1,0 +1,42 @@
+import { Potion } from "./Potion";
+
+export class MelancoliaPotion extends Potion {
+    private _emotionalDepth: number;
+    private _memoryTrigger: string;
+
+    constructor(
+        id: number,
+        description: string,
+        type: string,
+        quantity: number,
+        flavor: string,
+        principalEffect: string,
+        sideEffects: string,
+        howToUse: string,
+        ingredients: string,
+        price: number,
+        stock: number,
+        emotionalDepth: number,
+        memoryTrigger: string,
+    ) {
+        super(id, description, type, quantity, flavor, principalEffect, sideEffects, howToUse, ingredients, price, stock);
+        this._emotionalDepth = emotionalDepth;
+        this._memoryTrigger = memoryTrigger;
+    }
+
+    public get emotionalDepth() {
+        return this._emotionalDepth;
+    }
+
+    public set emotionalDepth(emotionalDepth: number) {
+        this._emotionalDepth = emotionalDepth;
+    }
+
+    public get memoryTrigger() {
+        return this._memoryTrigger;
+    }
+
+    public set memoryTrigger(memoryTrigger: string) {
+        this._memoryTrigger = memoryTrigger;
+    }
+}
