@@ -176,7 +176,5 @@ export function registerSamplePotions(potions: PotionController): void {
         timePotion1, timePotion2
     ];
 
-    samplePotions.forEach(potion => {
-        potions.registerPotion(potion);
-    });
+    samplePotions.forEach(potion => potions.registerPotion(potion));
 }
