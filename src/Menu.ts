@@ -8,7 +8,6 @@ import { MelancholyPotion } from "./models/MelancholyPotion";
 import { CouragePotion } from "./models/CouragePotion";
 import { TimeDilationPotion } from "./models/TimeDistortionPotion";
 import { registerDataPotions } from "./utils/dataPotions";
-import { error } from "console";
 
 export function menu() {
 
@@ -304,9 +303,8 @@ ${dataMenu.map((operation) =>`${operation.code} - ${operation.description}`).joi
                     break;
             }
         }
-    } catch (erro) {
-        throw new Error("Erro ao rodar o projeto!");
-        
+    } catch (error) {
+        throw new Error(`Erro ao rodar o projeto! => ${error}`);
     }
 }
 
