@@ -43,12 +43,11 @@ export class MelancholyPotion extends Potion {
     public view(): void {
         super.view();
         console.log(`
-*********************************
-Informações Adicionais!
-*********************************
+🧿 Informações Adicionais 🧿
 
-Profundidade emocional: ${this._emotionalDepth}
-Gatilhos: ${this._memoryTrigger}
+🌑 Profundidade emocional: ${this._emotionalDepth}
+🧠 Gatilhos: ${this._memoryTrigger}
+---------------------------------
 `);
     }
 }

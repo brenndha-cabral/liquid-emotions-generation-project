@@ -43,12 +43,11 @@ export class LovePotion extends Potion {
     public view(): void {
         super.view();
         console.log(`
-*********************************
-Informações Adicionais!
-*********************************
+🧿 Informações Adicionais 🧿
 
-Intensidade romântica: ${this._romanticIntensity}
-Alvo: ${this._target}
+💘 Intensidade romântica: ${this._romanticIntensity}
+👁️ Alvo: ${this._target}
+---------------------------------
 `);
     }
 }

@@ -43,12 +43,11 @@ export class TimeDilationPotion extends Potion {
     public view(): void {
         super.view();
         console.log(`
-*********************************
-Informações Adicionais!
-*********************************
+🧿 Informações Adicionais 🧿
 
-Fator dilatação: ${this._timeDilationFactor}
-Paradoxos possíveis: ${this._possibleParadoxes}
+⏳ Fator dilatação: ${this._timeDilationFactor}
+🌀 Paradoxos possíveis: ${this._possibleParadoxes}
+---------------------------------
 `);
     }
 }

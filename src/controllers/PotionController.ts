@@ -50,7 +50,7 @@ Poções do Boticário:
             console.log(`A poção número: ${potion.id} Já existe! Entre com outro número!`);
         } else {
             this.listPotions.push(potion);
-            console.log(`Poção cadastrada: ${potion.name} - número: ${potion.id}`);
+            console.log(`✨ Poção cadastrada: ${potion.name} - número: ${potion.id}`);
         }
 }
 

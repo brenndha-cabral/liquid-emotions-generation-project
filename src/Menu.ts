@@ -29,12 +29,12 @@ export function menu() {
             console.log(`
 *****************************************************
 
-             Poções - Emoções Líquidas
-            O que você quer fazer hoje?
+        🔮 Poções - Emoções Líquidas 🔮
+           O que você quer fazer hoje?
 
 *****************************************************
     
-${dataMenu.map((operation) =>`${operation.code} - ${operation.description}`).join('\n')}
+${dataMenu.map((operation) =>`✨ ${operation.code} - ${operation.description}`).join('\n')}
     
 *****************************************************`);
     
@@ -48,7 +48,7 @@ ${dataMenu.map((operation) =>`${operation.code} - ${operation.description}`).joi
             }
     
             if (operation.code === 6) {
-                console.log("\nO Boticário agradece seu contato, volte sempre!");
+                console.log("\n🧙 O Boticário agradece seu contato, volte sempre! 🧙 ");
                 process.exit(0);
                 /* encerra o programa manualmente (se houver código abaixo fora do escopo não vai mais rodar, e o arg é um código de saída
                  o 0 por exemplo significa saída sem erros, se fosse 1 seria com erro genérico e existem outros códigos também) */
@@ -58,7 +58,7 @@ ${dataMenu.map((operation) =>`${operation.code} - ${operation.description}`).joi
                 case 1:
     
                     console.log(`Digite o tipo da poção: 
-    ${dataTypesPotions.map((type) => `${type.code} - ${type.description}`).join('\n')}`);
+${dataTypesPotions.map((type) => `🔮 ${type.code} - ${type.description}`).join('\n')}`);
                     type = read.questionInt();
     
                     id = potions.generateIdPotion();
@@ -304,7 +304,7 @@ ${dataMenu.map((operation) =>`${operation.code} - ${operation.description}`).joi
             }
         }
     } catch (error) {
-        throw new Error(`Erro ao rodar o projeto! => ${error}`);
+        throw new Error(`Erro ao rodar o projeto! => ${(error as Error).message}`);
     }
 }
 

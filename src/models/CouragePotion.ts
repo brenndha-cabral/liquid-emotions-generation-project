@@ -43,12 +43,11 @@ export class CouragePotion extends Potion {
     public view(): void {
         super.view();
         console.log(`
-*********************************
-Informações Adicionais!
-*********************************
+🧿 Informações Adicionais 🧿
 
-Bônus de audácia: ${this._audacityBonus}
-Efeitos: ${this._sideEffect}
+🦁 Bônus de audácia: ${this._audacityBonus}
+⚡ Efeitos: ${this._sideEffect}
+---------------------------------
 `);
     }
 }

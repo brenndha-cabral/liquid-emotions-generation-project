@@ -43,12 +43,11 @@ export class ChaosPotion extends Potion {
     public view(): void {
         super.view();
         console.log(`
-*********************************
-Informações Adicionais!
-*********************************
+🧿 Informações Adicionais 🧿
 
-Nível de destruição: ${this._destructionLevel}
-Duração do efeito: ${this._effectDuration}
+💣 Nível de destruição: ${this._destructionLevel}
+⏳ Duração do efeito: ${this._effectDuration}
+---------------------------------
 `);
     }
 }
